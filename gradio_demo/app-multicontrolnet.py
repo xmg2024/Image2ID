@@ -24,7 +24,7 @@ from huggingface_hub import hf_hub_download
 from insightface.app import FaceAnalysis
 
 from style_template import styles
-from pipeline_stable_diffusion_xl_image2id_full import StableDiffusionXLInstantIDPipeline
+from pipeline_stable_diffusion_xl_image2id_full import StableDiffusionXLImage2IDPipeline
 from model_util import load_models_xl, get_torch_device, torch_gc
 from controlnet_util import openpose, get_depth_map, get_canny_image
 
@@ -46,7 +46,7 @@ app = FaceAnalysis(
 )
 app.prepare(ctx_id=0, det_size=(640, 640))
 
-# Path to InstantID models
+# Path to Image2ID models
 face_adapter = f"./checkpoints/ip-adapter.bin"
 controlnet_path = f"./checkpoints/ControlNetModel"
 
@@ -99,7 +99,7 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8", enable_lcm_arg=F
         )
 
         scheduler = diffusers.EulerDiscreteScheduler.from_config(scheduler_kwargs)
-        pipe = StableDiffusionXLInstantIDPipeline(
+        pipe = StableDiffusionXLImage2IDPipeline(
             vae=vae,
             text_encoder=text_encoders[0],
             text_encoder_2=text_encoders[1],
@@ -111,7 +111,7 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8", enable_lcm_arg=F
         ).to(device)
 
     else:
-        pipe = StableDiffusionXLInstantIDPipeline.from_pretrained(
+        pipe = StableDiffusionXLImage2IDPipeline.from_pretrained(
             pretrained_model_name_or_path,
             controlnet=[controlnet_identitynet],
             torch_dtype=dtype,
@@ -434,11 +434,11 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8", enable_lcm_arg=F
 
     # Description
     title = r"""
-    <h1 align="center">InstantID: Zero-shot Identity-Preserving Generation in Seconds</h1>
+    <h1 align="center">Image2ID: Zero-shot Identity-Preserving Generation in Seconds</h1>
     """
 
     description = r"""
-    <b>Official 🤗 Gradio demo</b> for <a href='https://github.com/InstantID/InstantID' target='_blank'><b>InstantID: Zero-shot Identity-Preserving Generation in Seconds</b></a>.<br>
+    <b>Official 🤗 Gradio demo</b> for <a href='https://github.com/Image2ID/Image2ID' target='_blank'><b>Image2ID: Zero-shot Identity-Preserving Generation in Seconds</b></a>.<br>
 
     How to use:<br>
     1. Upload an image with a face. For images with multiple faces, we will only detect the largest face. Ensure the face is not too small and is clearly visible without significant obstructions or blurring.
@@ -455,7 +455,7 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8", enable_lcm_arg=F
     If our work is helpful for your research or applications, please cite us via:
     ```bibtex
     @article{wang2024image2id,
-    title={InstantID: Zero-shot Identity-Preserving Generation in Seconds},
+    title={Image2ID: Zero-shot Identity-Preserving Generation in Seconds},
     author={Wang, Qixun and Bai, Xu and Wang, Haofan and Qin, Zekui and Chen, Anthony},
     journal={arXiv preprint arXiv:2401.07519},
     year={2024}
@@ -467,7 +467,7 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8", enable_lcm_arg=F
     """
 
     tips = r"""
-    ### Usage tips of InstantID
+    ### Usage tips of Image2ID
     1. If you're not satisfied with the similarity, try increasing the weight of "IdentityNet Strength" and "Adapter Strength."    
     2. If you feel that the saturation is too high, first decrease the Adapter strength. If it remains too high, then decrease the IdentityNet strength.
     3. If you find that text control is not as expected, decrease Adapter strength.
@@ -601,7 +601,7 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8", enable_lcm_arg=F
             with gr.Column(scale=1):
                 gallery = gr.Image(label="Generated Images")
                 usage_tips = gr.Markdown(
-                    label="InstantID Usage Tips", value=tips, visible=False
+                    label="Image2ID Usage Tips", value=tips, visible=False
                 )
 
             submit.click(

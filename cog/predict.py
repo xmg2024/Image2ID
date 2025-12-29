@@ -20,19 +20,19 @@ from insightface.app import FaceAnalysis
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from pipeline_stable_diffusion_xl_image2id import (
-    StableDiffusionXLInstantIDPipeline,
+    StableDiffusionXLImage2IDPipeline,
     draw_kps,
 )
 
 # for `ip-adaper`, `ControlNetModel`, and `stable-diffusion-xl-base-1.0`
 CHECKPOINTS_CACHE = "./checkpoints"
 CHECKPOINTS_URL = (
-    "https://weights.replicate.delivery/default/InstantID/checkpoints.tar"
+    "https://weights.replicate.delivery/default/Image2ID/checkpoints.tar"
 )
 
 # for `models/antelopev2`
 MODELS_CACHE = "./models"
-MODELS_URL = "https://weights.replicate.delivery/default/InstantID/models.tar"
+MODELS_URL = "https://weights.replicate.delivery/default/Image2ID/models.tar"
 
 
 def resize_img(
@@ -92,7 +92,7 @@ class Predictor(BasePredictor):
         )
         self.app.prepare(ctx_id=0, det_size=(self.width, self.height))
 
-        # Path to InstantID models
+        # Path to Image2ID models
         face_adapter = f"./checkpoints/ip-adapter.bin"
         controlnet_path = f"./checkpoints/ControlNetModel"
 
@@ -105,7 +105,7 @@ class Predictor(BasePredictor):
         )
 
         base_model_path = "stabilityai/stable-diffusion-xl-base-1.0"
-        self.pipe = StableDiffusionXLInstantIDPipeline.from_pretrained(
+        self.pipe = StableDiffusionXLImage2IDPipeline.from_pretrained(
             base_model_path,
             controlnet=self.controlnet,
             torch_dtype=torch.float16,

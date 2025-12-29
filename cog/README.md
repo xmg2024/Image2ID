@@ -1,14 +1,14 @@
-# InstantID Cog Model
+# Image2ID Cog Model
 
-[![Replicate](https://replicate.com/zsxkib/instant-id/badge)](https://replicate.com/zsxkib/instant-id)
+[![Replicate](https://replicate.com/zsxkib/image-id/badge)](https://replicate.com/zsxkib/image-id)
 
 ## Overview
-This repository contains the implementation of [InstantID](https://github.com/InstantID/InstantID) as a [Cog](https://github.com/replicate/cog) model. 
+This repository contains the implementation of [Image2ID](https://github.com/Image2ID/Image2ID) as a [Cog](https://github.com/replicate/cog) model. 
 
 Using [Cog](https://github.com/replicate/cog) allows any users with a GPU to run the model locally easily, without the hassle of downloading weights, installing libraries, or managing CUDA versions. Everything just works.
 
 ## Development
-To push your own fork of InstantID to [Replicate](https://replicate.com), follow the [Model Pushing Guide](https://replicate.com/docs/guides/push-a-model).
+To push your own fork of Image2ID to [Replicate](https://replicate.com), follow the [Model Pushing Guide](https://replicate.com/docs/guides/push-a-model).
 
 ## Basic Usage
 To make predictions using the model, execute the following command from the root of this project:

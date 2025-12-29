@@ -1,4 +1,4 @@
-# Copyright 2024 The InstantX Team. All rights reserved.
+# Copyright 2024 The ImageX Team. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -366,7 +366,7 @@ EXAMPLE_DOC_STRING = """
         >>> from PIL import Image
 
         >>> from insightface.app import FaceAnalysis
-        >>> from pipeline_stable_diffusion_xl_image2id import StableDiffusionXLInstantIDPipeline, draw_kps
+        >>> from pipeline_stable_diffusion_xl_image2id import StableDiffusionXLImage2IDPipeline, draw_kps
 
         >>> # download 'antelopev2' under ./models
         >>> app = FaceAnalysis(name='antelopev2', root='./', providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
@@ -379,7 +379,7 @@ EXAMPLE_DOC_STRING = """
         >>> # load IdentityNet
         >>> controlnet = ControlNetModel.from_pretrained(controlnet_path, torch_dtype=torch.float16)
 
-        >>> pipe = StableDiffusionXLInstantIDPipeline.from_pretrained(
+        >>> pipe = StableDiffusionXLImage2IDPipeline.from_pretrained(
         ...     "stabilityai/stable-diffusion-xl-base-1.0", controlnet=controlnet, torch_dtype=torch.float16
         ... )
         >>> pipe.cuda()
@@ -438,7 +438,7 @@ def draw_kps(image_pil, kps, color_list=[(255, 0, 0), (0, 255, 0), (0, 0, 255), 
     return out_img_pil
 
 
-class StableDiffusionXLInstantIDImg2ImgPipeline(StableDiffusionXLControlNetImg2ImgPipeline):
+class StableDiffusionXLImage2IDImg2ImgPipeline(StableDiffusionXLControlNetImg2ImgPipeline):
     def cuda(self, dtype=torch.float16, use_xformers=False):
         self.to("cuda", dtype)
 

@@ -13,7 +13,7 @@ from diffusers.utils import load_image
 from diffusers.models import ControlNetModel
 
 from insightface.app import FaceAnalysis
-from pipeline_stable_diffusion_xl_image2id import StableDiffusionXLInstantIDPipeline, draw_kps
+from pipeline_stable_diffusion_xl_image2id import StableDiffusionXLImage2IDPipeline, draw_kps
 
 def resize_img(input_image, max_side=1280, min_side=1024, size=None, 
                pad_to_max_side=False, mode=Image.BILINEAR, base_pixel_number=64):
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     app = FaceAnalysis(name='antelopev2', root='./', providers=['CPUExecutionProvider'])  # 移除CUDAExecutionProvider
     app.prepare(ctx_id=-1, det_size=(640, 640))  # ctx_id=-1 强制CPU推理
 
-    # Path to InstantID models
+    # Path to Image2ID models
     face_adapter = f'./checkpoints/ip-adapter.bin'
     controlnet_path = f'./checkpoints/ControlNetModel'
 
@@ -62,7 +62,7 @@ if __name__ == "__main__":
     # base_model_path = 'stabilityai/stable-diffusion-xl-base-1.0'
     base_model_path = 'wangqixun/YamerMIX_v8'
 
-    pipe = StableDiffusionXLInstantIDPipeline.from_pretrained(
+    pipe = StableDiffusionXLImage2IDPipeline.from_pretrained(
         base_model_path,
         controlnet=controlnet,
         torch_dtype=torch.float32,  # 关键：CPU不兼容float16，改为float32

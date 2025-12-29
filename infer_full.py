@@ -8,7 +8,7 @@ from diffusers.models import ControlNetModel
 from diffusers.pipelines.controlnet.multicontrolnet import MultiControlNetModel
 
 from insightface.app import FaceAnalysis
-from pipeline_stable_diffusion_xl_image2id_full import StableDiffusionXLInstantIDPipeline, draw_kps
+from pipeline_stable_diffusion_xl_image2id_full import StableDiffusionXLImage2IDPipeline, draw_kps
 
 from controlnet_aux import MidasDetector
 
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     app = FaceAnalysis(name='antelopev2', root='./', providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
     app.prepare(ctx_id=0, det_size=(640, 640))
 
-    # Path to InstantID models
+    # Path to Image2ID models
     face_adapter = f'./checkpoints/ip-adapter.bin'
     controlnet_path = f'./checkpoints/ControlNetModel'
     controlnet_depth_path = f'diffusers/controlnet-depth-sdxl-1.0-small'
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     
     base_model_path = 'stabilityai/stable-diffusion-xl-base-1.0'
 
-    pipe = StableDiffusionXLInstantIDPipeline.from_pretrained(
+    pipe = StableDiffusionXLImage2IDPipeline.from_pretrained(
         base_model_path,
         controlnet=controlnet,
         torch_dtype=torch.float16,
