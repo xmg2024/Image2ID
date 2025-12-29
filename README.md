@@ -17,7 +17,7 @@ Image2ID is a new state-of-the-art tuning-free method to achieve ID-Preserving g
 
 ### Kolors Version
 
-We have adapted InstantID for [Kolors](https://huggingface.co/Kwai-Kolors/Kolors-diffusers). Leveraging Kolors' robust text generation capabilities 👍👍👍, InstantID can be integrated with Kolors to simultaneously generate **ID** and **text**.
+We have adapted Image2ID for [Kolors](https://huggingface.co/Kwai-Kolors/Kolors-diffusers). Leveraging Kolors' robust text generation capabilities 👍👍👍, InstantID can be integrated with Kolors to simultaneously generate **ID** and **text**.
 
 
 | demo | demo | demo |
