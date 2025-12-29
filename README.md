@@ -15,26 +15,6 @@ Image2ID is a new state-of-the-art tuning-free method to achieve ID-Preserving g
   <img src="assets/StylizedSynthesis.png">
 </p>
 
-### Comparison with Previous Works
-
-<p align="center">
-  <img src="assets/compare-a.png">
-</p>
-
-Comparison with existing tuning-free state-of-the-art techniques. Image2ID achieves better fidelity and retain good text editability (faces and styles blend better).
-
-<p align="center">
-  <img src="assets/compare-c.png">
-</p>
-
-Comparison with pre-trained character LoRAs. We don't need multiple images and still can achieve competitive results as LoRAs without any training.
-
-<p align="center">
-  <img src="assets/compare-b.png">
-</p>
-
-Comparison with InsightFace Swapper (also known as ROOP or Refactor). However, in non-realistic style, our work is more flexible on the integration of face and background.
-
 ### Kolors Version
 
 We have adapted InstantID for [Kolors](https://huggingface.co/Kwai-Kolors/Kolors-diffusers). Leveraging Kolors' robust text generation capabilities 👍👍👍, InstantID can be integrated with Kolors to simultaneously generate **ID** and **text**.
