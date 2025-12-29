@@ -97,8 +97,8 @@ controlnet_path = f'./checkpoints/ControlNetModel'
 # load IdentityNet
 controlnet = ControlNetModel.from_pretrained(controlnet_path, torch_dtype=torch.float16)
 
-base_model = 'wangqixun/YamerMIX_v8'  # from https://civitai.com/models/84040?modelVersionId=196039
-pipe = StableDiffusionXLInstantIDPipeline.from_pretrained(
+base_model = 'xmg2024/YamerMIX_v8'  # from https://civitai.com/models/84040?modelVersionId=196039
+pipe = StableDiffusionXLImage2IDPipeline.from_pretrained(
     base_model,
     controlnet=controlnet,
     torch_dtype=torch.float16
@@ -106,7 +106,7 @@ pipe = StableDiffusionXLInstantIDPipeline.from_pretrained(
 pipe.cuda()
 
 # load adapter
-pipe.load_ip_adapter_instantid(face_adapter)
+pipe.load_ip_adapter_image2id(face_adapter)
 ```
 
 Then, you can customized your own face images
