@@ -28,14 +28,14 @@ We have adapted Image2ID for [Kolors](https://huggingface.co/Kwai-Kolors/Kolors-
 
 ## Download
 
-You can directly download the model from [Huggingface](https://huggingface.co/InstantX/InstantID).
+You can directly download the model from [Huggingface](https://huggingface.co/ImageX/Image2ID).
 You also can download the model in python script:
 
 ```python
 from huggingface_hub import hf_hub_download
-hf_hub_download(repo_id="InstantX/InstantID", filename="ControlNetModel/config.json", local_dir="./checkpoints")
-hf_hub_download(repo_id="InstantX/InstantID", filename="ControlNetModel/diffusion_pytorch_model.safetensors", local_dir="./checkpoints")
-hf_hub_download(repo_id="InstantX/InstantID", filename="ip-adapter.bin", local_dir="./checkpoints")
+hf_hub_download(repo_id="ImageX/Image2ID", filename="ControlNetModel/config.json", local_dir="./checkpoints")
+hf_hub_download(repo_id="ImageX/Image2ID", filename="ControlNetModel/diffusion_pytorch_model.safetensors", local_dir="./checkpoints")
+hf_hub_download(repo_id="ImageX/Image2ID", filename="ip-adapter.bin", local_dir="./checkpoints")
 ```
 
 Or run the following command to download all models:
