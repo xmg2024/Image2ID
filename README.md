@@ -48,7 +48,7 @@ python gradio_demo/download_models.py
 If you cannot access to Huggingface, you can use [hf-mirror](https://hf-mirror.com/) to download models.
 ```python
 export HF_ENDPOINT=https://hf-mirror.com
-huggingface-cli download --resume-download InstantX/InstantID --local-dir checkpoints --local-dir-use-symlinks False
+huggingface-cli download --resume-download ImageX/Image2ID --local-dir checkpoints --local-dir-use-symlinks False
 ```
 
 For face encoder, you need to manually download via this [URL](https://github.com/deepinsight/insightface/issues/1896#issuecomment-1023867304) to `models/antelopev2` as the default link is invalid. Once you have prepared all models, the folder tree should be like:
@@ -66,7 +66,7 @@ For face encoder, you need to manually download via this [URL](https://github.co
 
 If you want to reproduce results in the paper, please refer to the code in [infer_full.py](infer_full.py). If you want to compare the results with other methods, even without using depth-controlnet, it is recommended that you use this code. 
 
-If you are pursuing better results, it is recommended to follow [Image2ID-Rome](https://github.com/instantX-research/Image2ID-Rome).
+If you are pursuing better results, it is recommended to follow [Image2ID-Rome](https://github.com/imageX-research/Image2ID-Rome).
 
 The following code👇 comes from [infer.py](infer.py). If you want to quickly experience Image2ID, please refer to the code in [infer.py](infer.py). 
 
@@ -84,7 +84,7 @@ import numpy as np
 from PIL import Image
 
 from insightface.app import FaceAnalysis
-from pipeline_stable_diffusion_xl_instantid import StableDiffusionXLInstantIDPipeline, draw_kps
+from pipeline_stable_diffusion_xl_image2id import StableDiffusionXLImage2IDPipeline, draw_kps
 
 # prepare 'antelopev2' under ./models
 app = FaceAnalysis(name='antelopev2', root='./', providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
