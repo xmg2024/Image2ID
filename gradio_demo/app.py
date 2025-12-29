@@ -89,13 +89,13 @@ controlnet_path = f'./checkpoints/ControlNetModel'
 # Load pipeline
 controlnet = ControlNetModel.from_pretrained(controlnet_path, torch_dtype=dtype)
 
-def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8", enable_lcm_arg=False):
+def main(pretrained_model_name_or_path="xmg2024/YamerMIX_v8", enable_lcm_arg=False):
 
     if pretrained_model_name_or_path.endswith(
             ".ckpt"
         ) or pretrained_model_name_or_path.endswith(".safetensors"):
             scheduler_kwargs = hf_hub_download(
-                repo_id="wangqixun/YamerMIX_v8",
+                repo_id="xmg2024/YamerMIX_v8",
                 subfolder="scheduler",
                 filename="scheduler_config.json",
             )
@@ -348,20 +348,9 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8", enable_lcm_arg=F
 
     article = r"""
     ---
-    📝 **Citation**
-    <br>
-    If our work is helpful for your research or applications, please cite us via:
-    ```bibtex
-    @article{wang2024image2id,
-    title={Image2ID: Zero-shot Identity-Preserving Generation in Seconds},
-    author={Wang, Qixun and Bai, Xu and Wang, Haofan and Qin, Zekui and Chen, Anthony},
-    journal={arXiv preprint arXiv:2401.07519},
-    year={2024}
-    }
-    ```
     📧 **Contact**
     <br>
-    If you have any questions, please feel free to open an issue or directly reach us out at <b>haofanwang.ai@gmail.com</b>.
+    If you have any questions, please feel free to open an issue or directly reach us out at <b>112265ml.ai@gmail.com</b>.
     """
 
     tips = r"""
@@ -486,7 +475,7 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8", enable_lcm_arg=F
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--pretrained_model_name_or_path", type=str, default="wangqixun/YamerMIX_v8")
+    parser.add_argument("--pretrained_model_name_or_path", type=str, default="xmg2024/YamerMIX_v8")
     parser.add_argument("--enable_LCM", type=bool, default=os.environ.get("ENABLE_LCM", False))
 
     args = parser.parse_args()

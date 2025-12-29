@@ -60,7 +60,7 @@ if __name__ == "__main__":
     )
 
     # base_model_path = 'stabilityai/stable-diffusion-xl-base-1.0'
-    base_model_path = 'wangqixun/YamerMIX_v8'
+    base_model_path = 'xmg2024/YamerMIX_v8'
 
     pipe = StableDiffusionXLImage2IDPipeline.from_pretrained(
         base_model_path,
