@@ -66,7 +66,7 @@ import insightface
 from insightface.app import FaceAnalysis
 
 from style_template import styles
-from pipeline_stable_diffusion_xl_instantid_full import StableDiffusionXLInstantIDPipeline
+from pipeline_stable_diffusion_xl_image2id_full import StableDiffusionXLInstantIDPipeline
 from model_util import load_models_xl, get_torch_device, torch_gc
 
 import gradio as gr
@@ -129,7 +129,7 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8", enable_lcm_arg=F
 
         pipe.scheduler = diffusers.EulerDiscreteScheduler.from_config(pipe.scheduler.config)
 
-    pipe.load_ip_adapter_instantid(face_adapter)
+    pipe.load_ip_adapter_image2id(face_adapter)
     # load and disable LCM
     pipe.load_lora_weights("latent-consistency/lcm-lora-sdxl")
     pipe.disable_lora()
@@ -352,7 +352,7 @@ def main(pretrained_model_name_or_path="wangqixun/YamerMIX_v8", enable_lcm_arg=F
     <br>
     If our work is helpful for your research or applications, please cite us via:
     ```bibtex
-    @article{wang2024instantid,
+    @article{wang2024image2id,
     title={InstantID: Zero-shot Identity-Preserving Generation in Seconds},
     author={Wang, Qixun and Bai, Xu and Wang, Haofan and Qin, Zekui and Chen, Anthony},
     journal={arXiv preprint arXiv:2401.07519},

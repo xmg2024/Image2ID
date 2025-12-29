@@ -366,7 +366,7 @@ EXAMPLE_DOC_STRING = """
         >>> from PIL import Image
 
         >>> from insightface.app import FaceAnalysis
-        >>> from pipeline_stable_diffusion_xl_instantid import StableDiffusionXLInstantIDPipeline, draw_kps
+        >>> from pipeline_stable_diffusion_xl_image2id import StableDiffusionXLInstantIDPipeline, draw_kps
 
         >>> # download 'antelopev2' under ./models
         >>> app = FaceAnalysis(name='antelopev2', root='./', providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
@@ -385,7 +385,7 @@ EXAMPLE_DOC_STRING = """
         >>> pipe.cuda()
 
         >>> # load adapter
-        >>> pipe.load_ip_adapter_instantid(face_adapter)
+        >>> pipe.load_ip_adapter_image2id(face_adapter)
 
         >>> prompt = "analog film photo of a man. faded film, desaturated, 35mm photo, grainy, vignette, vintage, Kodachrome, Lomography, stained, highly detailed, found footage, masterpiece, best quality"
         >>> negative_prompt = "(lowres, low quality, worst quality:1.2), (text:1.2), watermark, painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, ugly, disfigured (lowres, low quality, worst quality:1.2), (text:1.2), watermark, painting, drawing, illustration, glitch,deformed, mutated, cross-eyed, ugly, disfigured"
@@ -459,7 +459,7 @@ class StableDiffusionXLInstantIDImg2ImgPipeline(StableDiffusionXLControlNetImg2I
             else:
                 raise ValueError("xformers is not available. Make sure it is installed correctly")
 
-    def load_ip_adapter_instantid(self, model_ckpt, image_emb_dim=512, num_tokens=16, scale=0.5):
+    def load_ip_adapter_image2id(self, model_ckpt, image_emb_dim=512, num_tokens=16, scale=0.5):
         self.set_image_proj_model(model_ckpt, image_emb_dim, num_tokens)
         self.set_ip_adapter(model_ckpt, num_tokens, scale)
 

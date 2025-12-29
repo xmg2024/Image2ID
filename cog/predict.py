@@ -19,7 +19,7 @@ from diffusers.models import ControlNetModel
 from insightface.app import FaceAnalysis
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from pipeline_stable_diffusion_xl_instantid import (
+from pipeline_stable_diffusion_xl_image2id import (
     StableDiffusionXLInstantIDPipeline,
     draw_kps,
 )
@@ -113,7 +113,7 @@ class Predictor(BasePredictor):
             local_files_only=True,
         )
         self.pipe.cuda()
-        self.pipe.load_ip_adapter_instantid(face_adapter)
+        self.pipe.load_ip_adapter_image2id(face_adapter)
 
     def predict(
         self,

@@ -7,7 +7,7 @@ from diffusers.utils import load_image
 from diffusers.models import ControlNetModel
 
 from insightface.app import FaceAnalysis
-from pipeline_stable_diffusion_xl_instantid_img2img import StableDiffusionXLInstantIDImg2ImgPipeline, draw_kps
+from pipeline_stable_diffusion_xl_image2id_img2img import StableDiffusionXLInstantIDImg2ImgPipeline, draw_kps
 
 def resize_img(input_image, max_side=1280, min_side=1024, size=None, 
                pad_to_max_side=False, mode=Image.BILINEAR, base_pixel_number=64):
@@ -54,7 +54,7 @@ if __name__ == "__main__":
         torch_dtype=torch.float16,
     )
     pipe.cuda()
-    pipe.load_ip_adapter_instantid(face_adapter)
+    pipe.load_ip_adapter_image2id(face_adapter)
 
     # Infer setting
     prompt = "analog film photo of a man. faded film, desaturated, 35mm photo, grainy, vignette, vintage, Kodachrome, Lomography, stained, highly detailed, found footage, masterpiece, best quality"

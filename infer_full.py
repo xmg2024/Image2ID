@@ -8,7 +8,7 @@ from diffusers.models import ControlNetModel
 from diffusers.pipelines.controlnet.multicontrolnet import MultiControlNetModel
 
 from insightface.app import FaceAnalysis
-from pipeline_stable_diffusion_xl_instantid_full import StableDiffusionXLInstantIDPipeline, draw_kps
+from pipeline_stable_diffusion_xl_image2id_full import StableDiffusionXLInstantIDPipeline, draw_kps
 
 from controlnet_aux import MidasDetector
 
@@ -69,7 +69,7 @@ if __name__ == "__main__":
         torch_dtype=torch.float16,
     )
     pipe.cuda()
-    pipe.load_ip_adapter_instantid(face_adapter)
+    pipe.load_ip_adapter_image2id(face_adapter)
 
     # Infer setting
     prompt = "analog film photo of a man. faded film, desaturated, 35mm photo, grainy, vignette, vintage, Kodachrome, Lomography, stained, highly detailed, found footage, masterpiece, best quality"
