@@ -19,13 +19,6 @@ Image2ID is a new state-of-the-art tuning-free method to achieve ID-Preserving g
 
 We have adapted Image2ID for [Kolors](https://huggingface.co/Kwai-Kolors/Kolors-diffusers). Leveraging Kolors' robust text generation capabilities 👍👍👍, Image2ID can be integrated with Kolors to simultaneously generate **ID** and **text**.
 
-
-| demo | demo | demo |
-|:-----:|:-----:|:-----:|
-<img src="./assets/kolor/demo_1.jpg" >|<img src="./assets/kolor/demo_2.jpg" >|<img src="./assets/kolor/demo_3.jpg" >|
-
-
-
 ## Download
 
 You can directly download the model from [Huggingface](https://huggingface.co/ImageX/Image2ID).
