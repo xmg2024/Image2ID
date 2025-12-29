@@ -58,7 +58,7 @@ For face encoder, you need to manually download via this [URL](https://github.co
   ├── models
   ├── checkpoints
   ├── ip_adapter
-  ├── pipeline_stable_diffusion_xl_instantid.py
+  ├── pipeline_stable_diffusion_xl_image2id.py
   └── README.md
 ```
 
@@ -66,9 +66,9 @@ For face encoder, you need to manually download via this [URL](https://github.co
 
 If you want to reproduce results in the paper, please refer to the code in [infer_full.py](infer_full.py). If you want to compare the results with other methods, even without using depth-controlnet, it is recommended that you use this code. 
 
-If you are pursuing better results, it is recommended to follow [InstantID-Rome](https://github.com/instantX-research/InstantID-Rome).
+If you are pursuing better results, it is recommended to follow [Image2ID-Rome](https://github.com/instantX-research/Image2ID-Rome).
 
-The following code👇 comes from [infer.py](infer.py). If you want to quickly experience InstantID, please refer to the code in [infer.py](infer.py). 
+The following code👇 comes from [infer.py](infer.py). If you want to quickly experience Image2ID, please refer to the code in [infer.py](infer.py). 
 
 
 
